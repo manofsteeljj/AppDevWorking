@@ -6,6 +6,12 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TradieController;
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('tradies', TradieController::class);
+});
+
 
 // Authentication Routes
 Route::post('/login', [AuthController::class, 'login']);
